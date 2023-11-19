@@ -1,22 +1,40 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import * as React from 'react';
+import { Text, View, Button } from 'react-native';
+import { useNavigation } from '@react-navigation/native';
 
- const HomeScreen= () => {
-  return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
-  );
+const HomeScreen = () =>{
+    const navigationHook = useNavigation();    
+    const handleClick = () => {    
+        console.log('boton');
+        navigationHook.navigate('Eventos')  
+    };
+    const navigate = useNavigation();    
+    const Clicks = () => {    
+        console.log('boton');
+        navigationHook.navigate('Vibracion')  
+    };
+    const navigation = useNavigation();    
+    const Click = () => {    
+        console.log('boton');
+        navigationHook.navigate('Calendario')  
+    };
+    const navigator = useNavigation();    
+    const handleClicks = () => {    
+        console.log('boton');
+        navigationHook.navigate('Calendario')  
+    };
+    return (
+        <View style={{flex: 1, alignItems: 'center'}}>
+        <Text style={{fontSize: 20}}>Bienvenidos a nuestra aplicacion</Text>
+        <Text>  </Text>
+        <Button title="Eventos" onPress={handleClick}/>
+        <Text> </Text>
+        <Button title="Calendario" onPress={Click}/>
+        <Text> </Text>
+        <Button title="Vibracion" onPress={Clicks}/>
+        <Text> </Text>
+        <Button title="Calendario" onPress={handleClicks}/>
+        </View>
+    );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
-
 export default HomeScreen
